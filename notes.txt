@@ -6,7 +6,7 @@ Option 1 -- Prescribe MRS voxel using coordinates in the template space:
 	Open LXTerminal and enter:
 
 	cd <your_MRS_folder>
-	./grab_image.sh <exam number> <series number>
+	./grab_images_new.sh <exam number> <series number>
 
 	Enter the exam number and series number of the subject's T1w scan. The script will pull the DICOMs of the T1w and convert to NIFTI, save as anat.nii.gz.
 
