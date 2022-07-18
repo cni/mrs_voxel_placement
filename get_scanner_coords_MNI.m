@@ -37,6 +37,12 @@ if ~exist('check_xf', 'var') || isempty(check_xf), check_xf = true; end
 if ~exist('labels', 'var') || isempty(labels), labels = {'lDLPFC'}; end
 if ~exist('coords', 'var') || isempty(coords), coords = [-29,26,32]; end
 
+% if template doesn't exist in current directory then copy it from FSL install directory
+if exist(template, 'file') ~= 2
+    cmd = sprintf('/bin/bash -c ''. %s/fsl.sh; cp %s/data/standard/%s.gz .; gunzip %s.gz''', fsldir, fsldir, template, template);
+    status = system(command);
+end
+
 mni_template_coords = coords';
 
 % mask individual T1 and uncompress nifti because spm requires .nii
